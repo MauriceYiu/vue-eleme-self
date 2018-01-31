@@ -1,7 +1,7 @@
 <template>
   <div id="city">
       <nav-header :doShowMe="false">
-        <span class="back" slot="arrow-back" @click="back"><</span>
+        <span class="back" slot="arrow-back" @click="back"> < </span>
         <p class="title" slot="title">{{cityName}}</p>
         <router-link class="changeCity" slot="changeCity" tag="span" to="/" >切换城市</router-link>
       </nav-header>
@@ -99,6 +99,7 @@ export default {
         saveSelectedSite.push(selectedSite);
       }
       saveLocal("selectedSite", JSON.stringify(saveSelectedSite));
+      saveLocal("nowSelectedSite", JSON.stringify(selectedSite));
       this.$router.push({path:'/main'});
     },
     clearAll() {

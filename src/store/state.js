@@ -1,3 +1,4 @@
 export default {
-  city_id: -1
+  city_id: -1,
+  geohash:''
 }

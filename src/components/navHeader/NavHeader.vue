@@ -3,6 +3,7 @@
       <slot name='logo'></slot>
       <span class="me" v-if="doShowMe">Me</span>
       <slot class="back" name="arrow-back"></slot>
+      <slot class="search" name="search"></slot>
       <slot class="title" name="title"></slot>
       <slot class="changeCity" name="changeCity"></slot>
   </div>
@@ -46,6 +47,12 @@ export default {
             @include back();
             z-index:1001;
             position: absolute;
+            left: 1.2rem;
+            z-index: 1001;
+        }
+        .search{
+            position: absolute;
+            font-size: 1.2rem;
             left: 1.2rem;
             z-index: 1001;
         }

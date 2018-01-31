@@ -6,6 +6,9 @@ import router from './router'
 import axios from 'axios'
 import './assets/js/rem'
 import store from './store'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+Vue.use(VueAwesomeSwiper, /* { default global options } */);
 
 Vue.prototype.$http = axios;
 

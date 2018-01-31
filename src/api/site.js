@@ -61,7 +61,9 @@ export const searchSite = (cityId, keyWord) => {
       keyword: keyWord
     }
   }).then(response => {
-    return Promise.resolve(response.data);
+    if (response.status == ERR_OK) {
+      return Promise.resolve(response.data);
+    }
   })
 }
 // 获取当前城市
@@ -70,6 +72,20 @@ export const getNowCity = (cityId) => {
     url: '/v1/cities/'+cityId,
     method: 'GET'
   }).then(response => {
-    return Promise.resolve(response.data);
+    if (response.status == ERR_OK) {
+      return Promise.resolve(response.data);
+    }
+  })
+}
+
+// 进入主页后获取确切位置
+export const getCurrSite = (geohash) => {
+  return axios({
+    url: '/v2/pois/'+geohash,
+    method: 'GET'
+  }).then(response => {
+    if (response.status == ERR_OK) {
+      return Promise.resolve(response.data);
+    }
   })
 }

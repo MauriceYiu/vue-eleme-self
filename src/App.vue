@@ -1,7 +1,13 @@
 <template>
   <div id="app">
-    <transition name="router-mov" >
-      <router-view/>
+    <transition name="router-mov" mode="out-in">
+        <keep-alive>
+          <router-view v-if="$route.meta.keepAlive"/>
+        </keep-alive>
+    </transition>
+    
+    <transition name="router-mov" mode="out-in">
+          <router-view v-if="!$route.meta.keepAlive"/>
     </transition>
   </div>
 </template>
@@ -9,6 +15,7 @@
 <script>
 import './assets/css/normalize.css'
 import './assets/scss/base.scss'
+
 export default {
   name: 'App'
 }
@@ -20,7 +27,7 @@ export default {
   }
   .router-mov-enter-active,
   .router-mov-leave-active{
-    transition: all .3s;
+    transition: opacity .3s;
   }
   .router-mov-enter,.router-mov-leave-active{
     opacity: 0;

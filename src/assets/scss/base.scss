@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 1px;
+  width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+}
+
+ul li {
+  list-style: none;
+}
+
+input,
+button {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}

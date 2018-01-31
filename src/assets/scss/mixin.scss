@@ -1,0 +1,39 @@
+
+$side : 1.2rem;
+$norColor : #3190e8;
+
+@mixin setBd($type:'border' ,$bdColor:#ddd) {
+  @if $type=='border-bottom' {
+    border-bottom: 1px solid $bdColor;
+  }
+  @else if $type=='border-top' {
+    border-top: 1px solid $bdColor;
+  }
+  @else if $type=='border-left' {
+    border-left: 1px solid $bdColor;
+  }
+  @else if $type=='border-right' {
+    border-right: 1px solid $bdColor;
+  }@else{
+      border: 1px solid $bdColor;
+  }
+}
+
+@mixin sidePad(){
+  padding: 0 $side;
+}
+
+@mixin arrowRight($arrowSize:1.5rem,$arrowColor:#ddd){
+  font-size: $arrowSize;
+  font-family: '宋体';
+  color: $arrowColor;
+  font-weight: 600;
+  float: right;
+}
+@mixin back($arrowSize:1.9rem,$arrowColor:#fff){
+  font-size: $arrowSize;
+  font-family: '宋体';
+  color: $arrowColor;
+  font-weight: 600;
+  float: left;
+}

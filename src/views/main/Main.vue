@@ -8,7 +8,9 @@
         <!-- slides -->
         <swiper-slide v-for="(item,index) in classItems" :key="index">
             <ul>
-              <li class="class-item" v-for="(classItem,classIndex) in item" :key="classIndex">
+              <li class="class-item" v-for="(classItem,classIndex) in item" 
+              @click="toFoodsPage(classItem)" :key="classIndex"
+              >
                   <div class="class-img">
                       <img :src="imgUrl+classItem.image_url" alt="">
                       <p class="class-name">{{classItem.title}}</p>
@@ -94,7 +96,24 @@ export default {
       let nowSiteInfo = this.geohash.split(",");
       getNearByStore(nowSiteInfo[0], nowSiteInfo[1]).then(res => {
         this.storeList = res;
-        console.log(res);
+      });
+    },
+    toFoodsPage(classItem) {
+      let urlData = decodeURIComponent(classItem.link.split("=")[1]).replace(
+        "&target_name",
+        ""
+      );
+      let restaurant_category_id = "";
+      if (/restaurant_category_id/gi.test(urlData)) {
+        urlData = JSON.parse(urlData);
+        restaurant_category_id = urlData.restaurant_category_id.id;
+      }
+      this.$router.push({
+        path: "/foods",
+        query: {
+          title: classItem.title,
+          restaurant_category_id: restaurant_category_id
+        }
       });
     },
     ...mapActions(["saveGeohash"])

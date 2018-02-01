@@ -1,7 +1,6 @@
 <template>
   <div id="city">
-      <nav-header :doShowMe="false">
-        <span class="back" slot="arrow-back" @click="back"> < </span>
+      <nav-header :doShowMe="false" :doShowGoBack="true">
         <p class="title" slot="title">{{cityName}}</p>
         <router-link class="changeCity" slot="changeCity" tag="span" to="/" >切换城市</router-link>
       </nav-header>
@@ -71,9 +70,6 @@ export default {
     NavHeader
   },
   methods: {
-    back() {
-      this.$router.back(-1);
-    },
     search() {
       searchSite(this.cityId, this.keyWord).then(res => {
         this.searchSite = res;

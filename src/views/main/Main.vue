@@ -19,16 +19,21 @@
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>
       </swiper>
+      <div class="nearby-store">
+        <h2>附近商家</h2>
+        <StoreList :storeList="storeList"></StoreList>
+      </div>
   </div>
 </template>
 
 <script>
 import NavHeader from "../../components/navHeader/NavHeader";
+import StoreList from "../../components/storeList/StoreList";
 import { getCurrSite } from "../../api/site";
-import { getClass } from "../../api/main";
+import { getClass, getNearByStore } from "../../api/main";
 import { imgBaseUrl } from "../../api/config";
 import { saveLocal, getLocal, removeLocal } from "../../utils/localStorage";
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 import "swiper/dist/css/swiper.min.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
@@ -47,27 +52,34 @@ export default {
           bulletActiveClass: "my-bullet-active"
         }
       },
-      classItems: []
+      classItems: [],
+      storeList: []
     };
   },
-  async beforeMount() {
+  //activated这个函数是keep-alive激活时才会调用
+  activated() {
     //   初始化地点
-    let nowSelectedSite = JSON.parse(getLocal("nowSelectedSite"));
-    this.geohash = nowSelectedSite.latitude + "," + nowSelectedSite.longitude;
-    await getCurrSite(this.geohash).then(res => {
-      this.cityName = res.name;
-      if (this.cityName.length > 9) {
-        this.cityName = this.cityName.substr(0, 9) + "...";
-      }
-    });
+    this.initSite();
   },
   mounted() {
-    //   初始化地点
-    // this.initSite();
     // 获取类别菜单
+    let nowSelectedSite = JSON.parse(getLocal("nowSelectedSite"));
+    this.geohash = nowSelectedSite.latitude + "," + nowSelectedSite.longitude;
     this.getClassMenu();
+    this.getStoreList();
   },
   methods: {
+    initSite() {
+      let nowSelectedSite = JSON.parse(getLocal("nowSelectedSite"));
+      this.geohash = nowSelectedSite.latitude + "," + nowSelectedSite.longitude;
+      getCurrSite(this.geohash).then(res => {
+        this.cityName = "";
+        this.cityName = res.name;
+        if (this.cityName.length > 9) {
+          this.cityName = this.cityName.substr(0, 9) + "...";
+        }
+      });
+    },
     getClassMenu() {
       getClass(this.geohash).then(res => {
         let classArr = [...res];
@@ -78,12 +90,20 @@ export default {
       });
       this.saveGeohash(this.geohash);
     },
-    ...mapActions(['saveGeohash'])
+    getStoreList() {
+      let nowSiteInfo = this.geohash.split(",");
+      getNearByStore(nowSiteInfo[0], nowSiteInfo[1]).then(res => {
+        this.storeList = res;
+        console.log(res);
+      });
+    },
+    ...mapActions(["saveGeohash"])
   },
   components: {
     NavHeader,
     swiper,
-    swiperSlide
+    swiperSlide,
+    StoreList
   }
 };
 </script>
@@ -91,7 +111,7 @@ export default {
 <style lang="scss">
 #main {
   .class-menu {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     background: #fff;
     position: relative;
     overflow: hidden;
@@ -110,7 +130,7 @@ export default {
             height: 3.6rem;
           }
           .class-name {
-            font-size: 1rem;
+            font-size: 1.4rem;
             color: #999;
           }
         }
@@ -127,6 +147,14 @@ export default {
   }
   .my-bullet-active {
     background: rgb(109, 166, 241);
+  }
+  .nearby-store {
+    h2 {
+      font-size: 1.3rem;
+      color: #999;
+      padding: 1.2rem 1.2rem;
+      background: #fff;
+    }
   }
 }
 </style>

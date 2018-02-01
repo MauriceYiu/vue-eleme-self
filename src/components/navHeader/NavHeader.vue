@@ -24,8 +24,8 @@ export default {
     @import '../../assets/scss/mixin.scss';
 
     #nav-header{
-        height: 4rem;
-        line-height: 4rem;
+        height: 5rem;
+        line-height: 5rem;
         background: $norColor;
         font-size: 1.6rem;
         color: #fff;
@@ -37,7 +37,7 @@ export default {
             float: right;
         }
         .changeCity{
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             position: absolute;
             right: 1.2rem;
             top: 0;
@@ -52,7 +52,7 @@ export default {
         }
         .search{
             position: absolute;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             left: 1.2rem;
             z-index: 1001;
         }

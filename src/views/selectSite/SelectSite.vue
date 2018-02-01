@@ -97,21 +97,21 @@ export default {
 #select-site {
   font-size: 1.5rem;
   .now-location-tit {
-    height: 3rem;
-    line-height: 3rem;
+    height: 4rem;
+    line-height: 4rem;
     color: #999;
     background: #fff;
     @include setBd("border-bottom",#ddd);
     @include sidePad();
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     .tit-right {
       color: #333;
       float: right;
     }
   }
   .now-site {
-    height: 3rem;
-    line-height: 3rem;
+    height: 4rem;
+    line-height: 4rem;
     background: #fff;
     @include sidePad();
     @include setBd("border-bottom",#ddd);
@@ -124,14 +124,14 @@ export default {
   }
   .hot-city {
     margin-top: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: $norColor;
     background: #fff;
     .hot-city-tit {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #999;
-      height: 3rem;
-      line-height: 3rem;
+      height: 4rem;
+      line-height: 4rem;
       @include sidePad();
       @include setBd("border-bottom",#ddd);
       @include setBd("border-top",#ddd);
@@ -144,8 +144,8 @@ export default {
         li {
           float: left;
           width: 25%;
-          height: 3rem;
-          line-height: 3rem;
+          height: 4rem;
+          line-height: 4rem;
           text-align: center;
           @include setBd();
         }
@@ -154,16 +154,16 @@ export default {
   }
   .other-city {
     margin-top: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #666;
     .city-group {
       background: #fff;
       margin-bottom: 1rem;
       .other-city-tit {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: #999;
-        height: 3rem;
-        line-height: 3rem;
+        height: 4rem;
+        line-height: 4rem;
         @include sidePad();
         @include setBd("border-bottom",#ddd);
         @include setBd("border-top",#ddd);
@@ -176,8 +176,8 @@ export default {
           li {
             float: left;
             width: 25%;
-            height: 3rem;
-            line-height: 3rem;
+            height: 4rem;
+            line-height: 4rem;
             text-align: center;
             @include setBd();
             overflow: hidden;

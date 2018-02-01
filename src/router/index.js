@@ -4,6 +4,7 @@ import SelectSite from '@/views/selectSite/SelectSite'
 import Main from '@/views/main/Main'
 import City from '@/views/city/City'
 import Loading from '@/components/loading/Loading'
+import Star from '@/components/star/Star'
 
 Vue.use(Router)
 

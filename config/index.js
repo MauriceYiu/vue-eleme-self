@@ -16,6 +16,9 @@ module.exports = {
       },
       '/v2':{
         target:'http://cangdu.org:8001'
+      },
+      '/shopping':{
+        target:'http://cangdu.org:8001'
       }
     },
 

@@ -124,7 +124,7 @@ export default {
       width: 100%;
       input {
         width: 100%;
-        height: 3rem;
+        height: 4rem;
         border-radius: 0.3rem;
         font-size: 1.5rem;
         padding-left: 1.2rem;
@@ -138,10 +138,10 @@ export default {
       span {
         display: block;
         width: 100%;
-        height: 3rem;
+        height: 4rem;
         border-radius: 0.3rem;
         text-align: center;
-        line-height: 3rem;
+        line-height: 4rem;
         font-size: 1.5rem;
         color: #fff;
         background: $norColor;
@@ -151,7 +151,7 @@ export default {
   .search-history {
     font-size: 1.5rem;
     .history-tit {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       padding: 0.6rem 1.2rem;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
@@ -163,10 +163,10 @@ export default {
         border-bottom: 1px solid #ddd;
         .site-name {
           color: #333;
-          padding: 0.6rem 1.2rem;
+          padding: 1.2rem 1.2rem;
         }
         .site-location {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           color: #ddd;
           padding-bottom: 0.6rem;
           padding-left: 1.2rem;
@@ -196,7 +196,7 @@ export default {
           padding: 0.6rem 1.2rem;
         }
         .site-location {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           color: #ddd;
           padding-bottom: 0.6rem;
           padding-left: 1.2rem;

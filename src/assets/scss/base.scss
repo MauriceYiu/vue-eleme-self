@@ -23,3 +23,13 @@ button {
   -webkit-appearance: none;
   border-radius: 0;
 }
+.clearfix:after,
+.clearfix:before{
+	content: '';
+	display: block;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+	clear: both;
+	zoom: 1;
+}

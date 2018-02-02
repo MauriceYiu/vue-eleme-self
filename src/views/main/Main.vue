@@ -111,6 +111,7 @@ export default {
       this.$router.push({
         path: "/foods",
         query: {
+          geohash: this.geohash,
           title: classItem.title,
           restaurant_category_id: restaurant_category_id
         }

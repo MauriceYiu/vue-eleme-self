@@ -1,11 +1,15 @@
 <template>
-  <div id="nav-header">
-      <slot name='logo'></slot>
-      <span class="me" v-if="doShowMe">Me</span>
-      <span class="back" v-if="doShowGoBack" @click="goBack"> < </span>
-      <slot class="search" name="search"></slot>
-      <slot class="title" name="title"></slot>
-      <slot class="changeCity" name="changeCity"></slot>
+  <div>
+    <div id="nav-header">
+        <slot name='logo'></slot>
+        <span class="me" v-if="doShowMe">Me</span>
+        <span class="back" v-if="doShowGoBack" @click="goBack"> < </span>
+        <slot class="search" name="search"></slot>
+        <slot class="title" name="title"></slot>
+        <slot class="changeCity" name="changeCity"></slot>
+    </div>
+    <!-- 用以解决脱离文档流的问题 -->
+    <div class="head-fixed"></div>
   </div>
 </template>
 
@@ -31,7 +35,9 @@ export default {
 
 <style lang='scss' scoped>
 @import "../../assets/scss/mixin.scss";
-
+.head-fixed{
+  height: 5rem;
+}
 #nav-header {
   height: 5rem;
   line-height: 5rem;
@@ -39,6 +45,11 @@ export default {
   font-size: 1.6rem;
   color: #fff;
   padding: 0 1.2rem;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
   .logo {
     float: left;
   }
